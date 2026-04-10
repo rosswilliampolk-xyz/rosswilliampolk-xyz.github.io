@@ -1,0 +1,341 @@
+---
+---
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap');
+
+/* ─── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Tokens ─────────────────────────────────────────── */
+:root {
+  --cream:  #f9f6f0;
+  --bark:   #4a3f30;
+  --moss:   #5a6e4a;
+  --stone:  #8c8278;
+  --leaf:   #7a9660;
+  --soil:   #c2b49a;
+  --paper:  #fdf9f3;
+}
+
+/* ─── Base ───────────────────────────────────────────── */
+html { font-size: 18px; }
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  background-color: var(--cream);
+  color: var(--bark);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%235a6e4a' stroke-width='0.3' opacity='0.12'%3E%3Cpath d='M30 5 Q35 30 30 55'/%3E%3Cpath d='M30 15 Q42 22 50 20'/%3E%3Cpath d='M30 25 Q18 32 10 30'/%3E%3Cpath d='M30 35 Q40 40 48 38'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Layout ─────────────────────────────────────────── */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* ─── Nav ────────────────────────────────────────────── */
+nav {
+  display: flex;
+  gap: 1.75rem;
+  margin-bottom: 3rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+nav a {
+  color: var(--stone);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--bark);
+  border-bottom-color: var(--soil);
+}
+
+/* ─── Hero ───────────────────────────────────────────── */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-text { flex: 1; }
+
+.intro {
+  font-size: 1.05rem;
+  color: var(--bark);
+  line-height: 1.75;
+}
+
+.links {
+  margin-top: 1.1rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--stone);
+}
+
+.links a {
+  color: var(--moss);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(90,110,74,0.3);
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.links a:hover {
+  color: var(--bark);
+  border-bottom-color: var(--bark);
+}
+
+.links .sep { margin: 0 0.5rem; color: var(--soil); }
+
+/* ─── Avatar ─────────────────────────────────────────── */
+.avatar {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid var(--soil);
+  box-shadow: 0 2px 12px rgba(74,63,48,0.12);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ─── Divider ────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--soil);
+  opacity: 0.45;
+  margin: 2rem 0;
+}
+
+/* ─── Section label ──────────────────────────────────── */
+.label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 1.1rem;
+}
+
+/* ─── Now list ───────────────────────────────────────── */
+.now-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.now-list li {
+  font-size: 0.98rem;
+  padding-left: 1.25rem;
+  position: relative;
+  color: var(--bark);
+  line-height: 1.65;
+}
+
+.now-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--leaf);
+  font-size: 0.85rem;
+  top: 3px;
+}
+
+.now-list li strong { font-weight: 500; }
+
+/* ─── Page content (Projects, Blog, Contact) ─────────── */
+.page-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 2rem;
+}
+
+.page-content {
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.page-content h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--bark);
+  margin: 2rem 0 0.5rem;
+}
+
+.page-content p { margin-bottom: 1rem; }
+
+.page-content a {
+  color: var(--moss);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(90,110,74,0.3);
+  transition: color 0.2s;
+}
+
+.page-content a:hover { color: var(--bark); }
+
+/* ─── Project cards ──────────────────────────────────── */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  border-top: 1px solid var(--soil);
+  padding-top: 1.5rem;
+}
+
+.project-card h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--bark);
+  margin-bottom: 0.35rem;
+}
+
+.project-card .meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--stone);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.project-card p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--bark);
+}
+
+/* ─── Blog list ──────────────────────────────────────── */
+.post-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.post-list li {
+  border-top: 1px solid var(--soil);
+  padding-top: 1.25rem;
+}
+
+.post-list .post-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--stone);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.post-list a {
+  font-size: 1rem;
+  color: var(--bark);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.post-list a:hover { border-bottom-color: var(--soil); }
+
+.post-list .post-excerpt {
+  font-size: 0.9rem;
+  color: var(--stone);
+  margin-top: 0.3rem;
+  line-height: 1.55;
+}
+
+/* ─── Contact ────────────────────────────────────────── */
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.contact-row {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  border-top: 1px solid var(--soil);
+  padding-top: 1rem;
+}
+
+.contact-row .contact-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  min-width: 80px;
+}
+
+.contact-row a {
+  color: var(--moss);
+  text-decoration: none;
+  font-size: 0.96rem;
+  border-bottom: 1px solid rgba(90,110,74,0.3);
+  transition: color 0.2s;
+}
+
+.contact-row a:hover { color: var(--bark); }
+
+/* ─── Footer ─────────────────────────────────────────── */
+.footer {
+  margin-top: 3.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--soil);
+  letter-spacing: 0.06em;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 520px) {
+  .hero { flex-direction: column-reverse; align-items: center; }
+  .avatar { width: 90px; height: 90px; }
+  .hero-text { text-align: center; }
+  .links { text-align: center; }
+  nav { justify-content: center; flex-wrap: wrap; }
+}

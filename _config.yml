@@ -1,0 +1,19 @@
+title: Ross Polk
+description: Dad, early stage startup executive, and investor.
+url: "https://rosspolk.xyz"
+baseurl: ""
+
+author:
+  name: Ross Polk
+  email: rosswilliampolk@gmail.com
+  linkedin: https://www.linkedin.com/in/rosspolk/
+
+# Build settings
+markdown: kramdown
+permalink: /:title/
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

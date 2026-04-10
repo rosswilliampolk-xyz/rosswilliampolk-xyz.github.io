@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<p class="page-title">Blog</p>
+
+<div class="page-content">
+  <h2>{{ page.title }}</h2>
+  <p class="post-date" style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--stone);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem;">
+    {{ page.date | date: "%B %-d, %Y" }}
+  </p>
+  {{ content }}
+</div>
